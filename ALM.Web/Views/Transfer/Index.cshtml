@@ -1,0 +1,36 @@
+﻿@model ALM.Web.Models.TransferViewModel
+
+@{
+    ViewData["Title"] = "Transfer";
+}
+
+<h1>Transfers</h1>
+<p>@ViewBag.Message</p>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Index">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FromAccountId" class="control-label"></label>
+                <input asp-for="FromAccountId" class="form-control" />
+                <span asp-validation-for="FromAccountId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToAccountId" class="control-label"></label>
+                <input asp-for="ToAccountId" class="form-control" />
+                <span asp-validation-for="ToAccountId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Amount" class="control-label"></label>
+                <input asp-for="Amount" class="form-control" />
+                <span asp-validation-for="Amount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Transfer" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
