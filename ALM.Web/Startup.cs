@@ -25,6 +25,8 @@ namespace ALM.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSingleton<BankRepository>();
+            services.AddScoped<Transactioner>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
