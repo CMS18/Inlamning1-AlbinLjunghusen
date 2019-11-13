@@ -41,5 +41,15 @@ namespace ALM.Web
             return account;
         }
 
+        public Account GetAccount(int accountId)
+        {
+            var account = Accounts.FirstOrDefault(a => a.AccountId == accountId);
+            if (account == null)
+            {
+                throw new AccountNotFoundException(accountId);
+            }
+            return account;
+        }
+
     }
 }
