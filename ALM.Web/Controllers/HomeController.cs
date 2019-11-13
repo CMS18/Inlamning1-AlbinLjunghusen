@@ -12,20 +12,20 @@ namespace ALM.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly BankRepository _repository;
 
-        public HomeController(ILogger<HomeController> logger, BankRepository repository)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _repository = repository;
         }
 
         public IActionResult Index()
         {
-            var model = new HomeViewModel();
-            model.Customers = _repository.Customers;
+            return View();
+        }
 
-            return View(model);
+        public IActionResult Privacy()
+        {
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
