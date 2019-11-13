@@ -1,4 +1,5 @@
 ﻿@model HomeViewModel
+@*STRUT*@
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -12,15 +13,15 @@
                 <h2>
                     @($"{customer.FirstName} {customer.LastName}")
                 </h2>
-                    <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush">
 
-                        @foreach (Account account in customer.Accounts)
-                        {
-                            <li class="list-group-item">
-                                @($"Account #{account.AccountId} - Balance: {account.Balance }")
-                            </li>
-                        }
-                    </ul>
+                    @foreach (Account account in customer.Accounts)
+                    {
+                        <li class="list-group-item">
+                            @($"Account #{account.AccountId} - Balance: {account.Balance }")
+                        </li>
+                    }
+                </ul>
             </li>
         }
     </ul>
