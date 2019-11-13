@@ -1,4 +1,5 @@
-﻿using ALM.Web.Models;
+﻿using ALM.Web.Exceptions;
+using ALM.Web.Models;
 //DETTA E ETT FULHAX!   
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,9 @@ namespace ALM.Web
 {
     public class Transactioner : ITransactioner
     {
-        private readonly BankRepository _repository;
+        private readonly IBankRepository _repository;
 
-        public Transactioner(BankRepository repository)
+        public Transactioner(IBankRepository repository)
         {
             _repository = repository;
         }
@@ -58,6 +59,35 @@ namespace ALM.Web
             return Withdraw(account, amount);
         }
 
+        public string Transfer(int FromAccountId, int ToAccountId, decimal Amount)
+        {
+            if (FromAccountId == ToAccountId)
+            {
+                throw new InvalidTransferException("Account numbers must be different.");
+            }
+            else
+            {
+                var fromaccount = _repository.GetAccount(FromAccountId);
+                if (fromaccount == null)
+                {
+                    throw new AccountNotFoundException(FromAccountId);
+                }
+                var toaccount = _repository.GetAccount(ToAccountId);
+                if (toaccount == null)
+                {
+                    throw new AccountNotFoundException(ToAccountId);
+                }
 
+                Withdraw(FromAccountId, Amount);
+                Deposit(ToAccountId, Amount);
+            }
+
+            var newbalancefrom = _repository.GetAccount(FromAccountId).Balance;
+            var newbalanceto = _repository.GetAccount(ToAccountId).Balance;
+
+            return Amount + " was transfered from account #" + FromAccountId + " to #" + ToAccountId +
+                   ". Account #" + FromAccountId + " balance: " + newbalancefrom +
+                   ". Account #" + ToAccountId + " balance: " + newbalanceto; 
+        }
     }
 }

@@ -8,5 +8,7 @@ namespace ALM.Web
         decimal Deposit(int accountId, decimal amount);
         decimal Withdraw(Account account, decimal amount);
         decimal Withdraw(int accountId, decimal amount);
+
+        string Transfer(int fromaccount, int toaccount, decimal amount);
     }
 }
