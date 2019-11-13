@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using ALM.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
+//DETTA E ETT FULHAX!   
 namespace ALM.Web.Controllers
 {
     public class TransactionController : Controller
