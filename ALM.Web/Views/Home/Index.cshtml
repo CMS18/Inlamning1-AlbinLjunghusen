@@ -1,8 +1,27 @@
-﻿@{
+﻿@model HomeViewModel
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Albins Tunga Bank</h1>
+    <ul class="list-group list-group-flush">
+        @foreach (Customer customer in Model.Customers)
+        {
+            <li class="list-group-item">
+                <h2>
+                    @($"{customer.FirstName} {customer.LastName}")
+                </h2>
+                    <ul class="list-group list-group-flush">
+
+                        @foreach (Account account in customer.Accounts)
+                        {
+                            <li class="list-group-item">
+                                @($"Account #{account.AccountId} - Balance: {account.Balance }")
+                            </li>
+                        }
+                    </ul>
+            </li>
+        }
+    </ul>
 </div>
