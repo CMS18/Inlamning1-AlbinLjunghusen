@@ -25,6 +25,7 @@ namespace ALM.Web
         {
             services.AddControllersWithViews();
             services.AddSingleton<BankRepository>();
+            services.AddScoped<Transactioner>();
 
         }
 
