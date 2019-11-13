@@ -26,6 +26,21 @@ namespace ALM.Test
         [InlineData(1337)]
         [InlineData(9000)]
         [InlineData(80085)]
+        public void DepositTestAuto(decimal amount)
+        {
+            var account = new Account();
+            var transactioner = new Transactioner();
+            decimal originalBalance = account.Balance;
+
+            transactioner.Deposit(account, amount);
+
+            account.Balance.ShouldBe(originalBalance + amount);
+        }
+
+        [Theory]
+        [InlineData(1337)]
+        [InlineData(9000)]
+        [InlineData(80085)]
         public void DepositTest(decimal amount)
         {
             var account = new Account();

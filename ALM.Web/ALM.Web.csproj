@@ -4,8 +4,11 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
-
   <ItemGroup>
+    <PackageReference Include="autofixture" Version="4.11.0" />
+    <PackageReference Include="autofixture.automoq" Version="4.11.0" />
+    <PackageReference Include="autofixture.xunit2" Version="4.11.0" />
+    <PackageReference Include="moq" Version="4.13.1" />
   </ItemGroup>
 
 </Project>

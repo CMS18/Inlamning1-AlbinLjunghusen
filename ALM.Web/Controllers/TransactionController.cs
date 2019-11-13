@@ -10,10 +10,10 @@ namespace ALM.Web.Controllers
 {
     public class TransactionController : Controller
     {
-        private readonly Transactioner _transactioner;
-        private readonly BankRepository _repository;
+        private readonly ITransactioner _transactioner;
+        private readonly IBankRepository _repository;
 
-        public TransactionController(Transactioner transactioner, BankRepository repository)
+        public TransactionController(ITransactioner transactioner, IBankRepository repository)
         {
             _transactioner = transactioner;
             _repository = repository;

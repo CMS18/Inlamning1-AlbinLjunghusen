@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ALM.Web
 {
-    public class BankRepository
+    public class BankRepository : IBankRepository
     {
         public List<Customer> Customers { get; set; } = new List<Customer>();
         public List<Account> Accounts { get; set; } = new List<Account>();

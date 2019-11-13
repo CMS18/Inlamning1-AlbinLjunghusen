@@ -13,9 +13,9 @@ namespace ALM.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly BankRepository _repository;
+        private readonly IBankRepository _repository;
 
-        public HomeController(ILogger<HomeController> logger, BankRepository repository)
+        public HomeController(ILogger<HomeController> logger, IBankRepository repository)
         {
             _logger = logger;
             _repository = repository;

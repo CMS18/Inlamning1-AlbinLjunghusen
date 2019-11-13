@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ALM.Web
 {
-    public class Transactioner
+    public class Transactioner : ITransactioner
     {
         private readonly BankRepository _repository;
 
