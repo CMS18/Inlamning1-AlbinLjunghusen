@@ -1,3 +1,4 @@
+//strut
 using ALM.Web;
 using ALM.Web.Models;
 using Shouldly;
