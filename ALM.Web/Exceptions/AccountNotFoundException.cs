@@ -7,7 +7,7 @@ namespace ALM.Web
 {
     public class AccountNotFoundException : Exception
     {
-        public AccountNotFoundException(string message) : base(message)
+        public AccountNotFoundException(int accountId) : base($"Account #{accountId} not found")
         {
         }
     }

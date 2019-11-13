@@ -31,7 +31,7 @@ namespace ALM.Web
             var account = _repository.GetAccount(accountId);
             if (account == null)
             {
-                throw new AccountNotFoundException($"Account #{accountId} not found");
+                throw new AccountNotFoundException(accountId);
             }
             return Deposit(account, amount);
         }
@@ -52,7 +52,7 @@ namespace ALM.Web
             var account = _repository.GetAccount(accountId);
             if (account == null)
             {
-                throw new AccountNotFoundException($"Account #{accountId} not found");
+                throw new AccountNotFoundException(accountId);
             }
             return Withdraw(account, amount);
         }
